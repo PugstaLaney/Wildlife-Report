@@ -7,9 +7,6 @@ people, and vehicles in trail camera images.
 Outputs:
   - detections.csv  : one row per detection with metadata
   - annotated/      : copies of images with bounding boxes drawn
-
-Install dependencies first:
-    pip install PytorchWildlife torch torchvision pillow pandas numpy
 """
 
 import os
@@ -23,11 +20,11 @@ from PIL import Image, ImageDraw, ImageFont, ExifTags
 from PytorchWildlife.models import detection as pw_detection
 
 
-# ── Configuration ─────────────────────────────────────────────────────────────
+# Configuration 
 
 IMAGE_DIR  = Path(r"G:\My Drive\Wildlife pictures")
-OUTPUT_DIR = IMAGE_DIR / "annotated"
-CSV_PATH   = IMAGE_DIR / "detections.csv"
+OUTPUT_DIR = Path(r"C:\Users\palla\OneDrive\Documents\Coding Projects\Wildlife report\Annotated_Megadetector_Output")
+CSV_PATH   = OUTPUT_DIR / "detections.csv"
 
 # Detection confidence threshold (0.0–1.0).
 # Lower = catches more animals but more false positives.
@@ -41,7 +38,7 @@ LABEL_MAP = {0: "animal", 1: "person", 2: "vehicle"}
 BOX_COLORS = {"animal": "lime", "person": "red", "vehicle": "yellow"}
 
 
-# ── Setup ──────────────────────────────────────────────────────────────────────
+# Path Setup 
 
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -53,7 +50,7 @@ model = pw_detection.MegaDetectorV5(device=DEVICE, pretrained=True)
 print("Model ready.\n")
 
 
-# ── Helpers ────────────────────────────────────────────────────────────────────
+#Helpers
 
 def get_timestamp(image_path: Path) -> str:
     """Return EXIF capture time, or file modification time as fallback."""
@@ -100,7 +97,7 @@ def draw_boxes(img: Image.Image, detections, output_path: Path):
     img.save(output_path)
 
 
-# ── Main pipeline ──────────────────────────────────────────────────────────────
+#Main pipeline
 
 def run():
     # Collect all images, skipping the annotated output folder

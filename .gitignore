@@ -7,9 +7,16 @@
 *.tif
 *.webp
 
-# Output
-annotated/
-detections.csv
+# CSV data files
+*.csv
+
+# Output folders
+Annotated_Megadetector_Output/
+Annotated_iNaturalist_Output/
+
+# Image metadata
+*.xmp
+*.exif
 
 # Python
 __pycache__/
