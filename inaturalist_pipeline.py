@@ -32,12 +32,11 @@ DETECTIONS_CSV      = WILDLIFE_REPORT_DIR / "Annotated_Megadetector_Output" / "d
 OUTPUT_DIR          = WILDLIFE_REPORT_DIR / "Annotated_iNaturalist_Output"
 OUTPUT_CSV          = OUTPUT_DIR / "species_results.csv"
 
-# Your iNaturalist API token.
-# Get it by logging into inaturalist.org, then visiting:
-#   https://www.inaturalist.org/users/api_token
+#iNaturalist API token.
+
 INAT_API_TOKEN = "eyJhbGciOiJIUzUxMiJ9.eyJ1c2VyX2lkIjoxMDIxODE0NCwiZXhwIjoxNzc0MjQ3OTM4fQ.KD2-VpUPNMvUarzwxBjDbfOIDbqr75tTNA_TBpp3N_U12ZZlTJ_PA_XCODl7E-F_JPu6ZesPnNi_wWpX8KcrfA"
 
-# Optional: GPS coordinates of your camera trap location.
+# GPS coordinates of camera trap location.
 # Providing these improves accuracy by filtering out implausible species.
 # Set to None to skip.
 CAMERA_LAT = 31.880564254097866   # Grosvenor, Texas
